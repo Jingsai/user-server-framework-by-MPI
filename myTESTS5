@@ -1,0 +1,8 @@
+# test for psemester.txt project
+
+make pstest3
+# PUTs for type == myrank (also PUT ANSWER for each successful GET)
+# (MASTER also GETS ANSWERS)
+# GETs for any even type if myrank is even and any odd type if myrank is odd
+# run with 64 total including 8 servers
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 64  ./pstest3  -nservers 8  -n 2500 -s 100 -t 0.01

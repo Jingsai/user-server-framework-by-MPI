@@ -1,0 +1,28 @@
+# test for psemester.txt project
+
+make pstest1
+# plain vanilla
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest1  -nservers 4  -n 2500 -s 100000 -t 0.05
+
+
+# too much work (this one should print a message and abort)
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 2  ./pstest1  -nservers 1  -n 1100 -s 1000000
+
+# lots of work (enough to overflow 3 servers)
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest1  -nservers 4  -n 3300 -s 1000000 -t 0.05
+
+
+make pstest2
+# PUTs for type == myrank (also PUT ANSWER for each successful GET; targeted to MASTER)
+# (MASTER also GETS ANSWERS)
+# GETs for type == myrank+1 % num_app_ranks 
+# run like plain
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest2  -nservers 4  -n 2500 -s 100000 -t 0.01
+
+
+make pstest3
+# PUTs for type == myrank (also PUT ANSWER for each successful GET)
+# (MASTER also GETS ANSWERS)
+# GETs for any even type if myrank is even and any odd type if myrank is odd
+# run with 64 total including 8 servers
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 64  ./pstest3  -nservers 8  -n 2500 -s 100 -t 0.01

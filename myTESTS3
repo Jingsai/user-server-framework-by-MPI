@@ -1,0 +1,6 @@
+# test for psemester.txt project
+
+make pstest1
+# lots of work (enough to overflow 3 servers)
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest1  -nservers 4  -n 3300 -s 1000000 -t 0.05
+

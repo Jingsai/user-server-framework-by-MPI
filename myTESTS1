@@ -1,0 +1,7 @@
+# test for psemester.txt project
+
+make pstest1
+# plain vanilla
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest1  -nservers 4  -n 2500 -s 100000 -t 0.05
+
+

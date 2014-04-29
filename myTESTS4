@@ -1,0 +1,8 @@
+# test for psemester.txt project
+
+make pstest2
+# PUTs for type == myrank (also PUT ANSWER for each successful GET; targeted to MASTER)
+# (MASTER also GETS ANSWERS)
+# GETs for type == myrank+1 % num_app_ranks 
+# run like plain
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 16  ./pstest2  -nservers 4  -n 2500 -s 100000 -t 0.01

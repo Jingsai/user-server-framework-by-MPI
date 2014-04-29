@@ -1,0 +1,5 @@
+# test for psemester.txt project
+
+make pstest1
+# too much work (this one should print a message and abort)
+/nfshome/rbutler/public/courses/pp6430/mpich3i/bin/mpiexec -f hosts_name -n 2  ./pstest1  -nservers 1  -n 1100 -s 1000000
